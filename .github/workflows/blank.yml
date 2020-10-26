@@ -31,3 +31,13 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+  
+  deploy_heroku:
+     runs-on: ubuntu-latest
+     steps:
+       - uses: actions/checkout@v2
+       - uses: akhileshns/heroku-deploy@v3.0.4 # This is the action
+         with:
+           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+           heroku_app_name: "ele-sch-ellipse" # Must be unique in Heroku
+           heroku_email: "schigirev.elena@gmail.com"
